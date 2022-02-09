@@ -1,1 +1,4 @@
 
+[submodule "wikipedia-crawler"]
+	path = wikipedia-crawler
+	url = https://github.com/jon-pruessmeier/wikipedia-crawler.git
