@@ -1,8 +1,8 @@
 Microservice-Architecture with 3 Backend-Services and 1 Client:
     Backend:
-        -Crawler: NodeJS/ExpressJS + Selenium
-        -Middleware: NestJS
-        -MongoDB
+        -Crawler: Python + Selenium
+        -Middleware: NodeJS/ExpressJS
+        (MongoDB)
     Frontend:
         -React-Client
 
