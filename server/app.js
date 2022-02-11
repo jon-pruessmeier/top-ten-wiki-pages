@@ -6,9 +6,9 @@ const spawn = require("child_process").spawn;
 const pythonProcess = spawn('python',["../wikipedia-crawler/main.py"]);
 let jsonData;
 pythonProcess.stdout.on('data', (data) => {
-    //console.log(data);
     const temp = JSON.parse(data.toString());
     jsonData = temp;
+    console.log(jsonData);
 });
 
 app.get('/hello', (req, res) => {
