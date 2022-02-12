@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 function ArticleInfo(title, p, imgLink="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg", link="google.com"){
     return (
