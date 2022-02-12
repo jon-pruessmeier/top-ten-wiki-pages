@@ -3,11 +3,7 @@ const path = require('path');
 
 const app = express();
 
-
-const parentDir = path.join(__dirname, '..');
-const buildPath = path.join(parentDir, '/client/build/');
-const indexHTML = path.join(buildPath, 'index.html');
-const static = path.join(parentDir, '/static/');
+const build = path.join(__dirname, )
 
 
 let jsonData;
@@ -29,7 +25,7 @@ app.get('/articles', (req, res) => {
 })
 
 app.get('/', (req, res) => {
-    console.log(indexHTML);
+    const indexHTML = path.join(__dirname, ('b'))
     res.sendFile(indexHTML);
 });
 
