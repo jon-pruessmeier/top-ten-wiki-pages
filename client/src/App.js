@@ -3,29 +3,57 @@ import './App.css';
 import ArticleInfo from './ArticleInfo';
 import testdata from './testdata';
 
-async function loadArticles(){
-  const url = "/article";
-  const response = await fetch(url);
-  console.log(response);
-  const data = await response.json();
-  console.log(data);
-  if (data){
-    return data;
-  } else {
-    return testdata;
-  }
-}
-
-const data = loadArticles();
-console.log(typeof data);
+console.log(testdata);
 
 function App() {
 
-  return (
+  function listOfArticles(data){
+    let list = [];
+    for (let i = 0; i < data.length; i++){
+      const elem = data[i];
+      console.log(elem);
+      console.log('-----ITERATION---------')
+      if (elem.title !== ""){
+        const article = ArticleInfo(elem.title, elem.text, elem.picture);
+        console.log(article);
+        list.push(article);
+       
+      }
+      console.log('---------------')
+    }
+    return list;
+  }
+
+  async function loadArticles(){
+    const url = "/articles";
+    const options = {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+    const response = await fetch(url, options);
+    const result = await response.json();
+    return result;
+  }
+
+  const hello = loadArticles();
+  console.log('---------');
+  console.log(hello);
+  console.log('---------');
+  const listArticles = listOfArticles(hello);
+
+
+
+
+  const app = (
     <div>
-      {data.map( (x) => {if (x.title !== ""){return ArticleInfo(x.title, x.text, x.picture);}})}
+      <h1>Articles:</h1>
+      {listArticles}
     </div>
-  )
+  );
+
+  return app;
 
 }
 
