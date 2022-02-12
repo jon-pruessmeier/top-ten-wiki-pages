@@ -5,7 +5,6 @@ function ArticleInfo(title, p, imgLink="https://upload.wikimedia.org/wikipedia/c
     return (
         <div className="articleInfo">
             <h3>{title}</h3>
-            <img src={imgLink} />
             <p>{p}</p>
             <a href={link}>Hier geht es zum Artikel!</a>
         </div>
