@@ -9,8 +9,7 @@ const staticDir = path.join(buildDir, 'static');
 
 const app = express();
 
-
-
+const PORT = process.env.PORT || 8000;
 
 let jsonData;
 const spawn = require("child_process").spawn;
@@ -40,6 +39,6 @@ app.use(express.static(buildDir));
 
 
 
-app.listen(8000, () => {
-    console.log('Server listening on Port 8000');
+app.listen(PORT, () => {
+    console.log(`Server listening on Port ${PORT}`);
 });
