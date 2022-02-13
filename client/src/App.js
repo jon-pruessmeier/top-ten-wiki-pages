@@ -67,8 +67,8 @@ function App() {
   
 
   const app = (
-    <div>
-      {listOfArticles(articles)}
+    <div className="App">
+      {listOfArticles(testdata)}
     </div>
   );
 
