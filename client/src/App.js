@@ -12,15 +12,12 @@ function App() {
     let list = [];
     for (let i = 0; i < data.length; i++){
       const elem = data[i];
-      console.log(elem.title);
-      console.log('-----ITERATION---------')
       if (elem.title !== ""){
-        const article = ArticleInfo(elem.title, elem['p-text'], elem.link);
-        console.log(article);
+        const article = ArticleInfo(elem.title, elem['p-text'], elem.link, elem.img);
         list.push(article);
       }
-      console.log('---------------')
     }
+
     return list;
   }
 
@@ -67,8 +64,8 @@ function App() {
   
 
   const app = (
-    <div className="App">
-      {listOfArticles(testdata)}
+    <div className="card-columns">
+          {listOfArticles(articles)}
     </div>
   );
 

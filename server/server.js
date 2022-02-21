@@ -38,7 +38,6 @@ app.get('/', (req, res) => {
 app.use(express.static(buildDir));
 
 
-
 app.listen(PORT, () => {
     console.log(`Server listening on Port ${PORT}`);
 });
