@@ -15,15 +15,19 @@ let jsonData;
 const spawn = require("child_process").spawn;
 const pythonProcess = spawn('python',["./wikipedia-crawler/main.py"]); 
 
-pythonProcess.stdout.on('data', (data) => {
+//setInterval(() => {
+
+    pythonProcess.stdout.on('data', (data) => {
     jsonData = JSON.parse(data.toString());
     console.log(typeof jsonData);
     console.log(jsonData);
     console.log(jsonData.length);
-});
+    });
+
+//}, 10000);
 
 
-app.get('/articles', (req, res) => {
+app.get('/api/wikipages/articles', (req, res) => {
     if (jsonData){
         res.status(200).send(JSON.stringify(jsonData));
     } else {
