@@ -21,22 +21,6 @@ function App() {
     return list;
   }
 
-  /*
-  async function loadArticles(){
-    const url = "/articles";
-    const options = {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }
-    const response = await fetch(url, options);
-    const result = await response.json();
-    console.log(result);
-    setArticles(result);
-  }
-  */
-
   document.addEventListener("DOMContentLoaded", () => {
     const loadArticles = async () => {
       const url = "/api/wikipages/articles";
@@ -64,8 +48,11 @@ function App() {
   
 
   const app = (
-    <div className="card-columns">
-          {listOfArticles(articles)}
+    <div className="container-fluid">
+      <div className="row mx-0">
+        {listOfArticles(articles)}
+      </div>
+        
     </div>
   );
 
