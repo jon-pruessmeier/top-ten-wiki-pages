@@ -9,22 +9,20 @@ const staticDir = path.join(buildDir, 'static');
 
 const app = express();
 
-const PORT = process.env.PORT || 8000;
+const PORT = 8000;
 
 let jsonData;
 const spawn = require("child_process").spawn;
 const pythonProcess = spawn('python',["./wikipedia-crawler/main.py"]); 
 
-//setInterval(() => {
 
-    pythonProcess.stdout.on('data', (data) => {
-    jsonData = JSON.parse(data.toString());
-    console.log(typeof jsonData);
-    console.log(jsonData);
-    console.log(jsonData.length);
-    });
+pythonProcess.stdout.on('data', (data) => {
+jsonData = JSON.parse(data.toString());
+console.log(typeof jsonData);
+console.log(jsonData);
+console.log(jsonData.length);
+});
 
-//}, 10000);
 
 
 app.get('/api/wikipages/articles', (req, res) => {
@@ -42,6 +40,6 @@ app.get('/', (req, res) => {
 app.use(express.static(buildDir));
 
 
-app.listen(PORT, () => {
+app.listen(PORT, "127.0.0.1", () => {
     console.log(`Server listening on Port ${PORT}`);
 });
