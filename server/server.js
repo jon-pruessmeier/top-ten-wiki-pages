@@ -25,7 +25,7 @@ console.log(jsonData.length);
 
 
 
-app.get('/wikipages_project/api/wikipages/articles', (req, res) => {
+app.get('/api/wikipages/articles', (req, res) => {
     if (jsonData){
         res.status(200).send(JSON.stringify(jsonData));
     } else {
@@ -33,7 +33,7 @@ app.get('/wikipages_project/api/wikipages/articles', (req, res) => {
     }
 })
 
-app.get('/wikipages_project', (req, res) => {
+app.get('/', (req, res) => {
     res.sendFile(indexHTML);
 });
 
