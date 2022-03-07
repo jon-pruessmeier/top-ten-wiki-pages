@@ -13,7 +13,7 @@ const PORT = 8000;
 
 let jsonData;
 const spawn = require("child_process").spawn;
-const pythonProcess = spawn('python',["./wikipedia-crawler/main.py"]); 
+const pythonProcess = (process.platform === "win32") ? spawn('python',["./wikipedia-crawler/main.py"]) : spawn('python3',["../wikipedia-crawler/main.py"]); 
 
 
 pythonProcess.stdout.on('data', (data) => {
