@@ -25,7 +25,7 @@ console.log(jsonData.length);
 
 
 
-app.get('/api/wikipages/articles', (req, res) => {
+app.get('/api/articles', (req, res) => {
     if (jsonData){
         res.status(200).send(JSON.stringify(jsonData));
     } else {

@@ -23,7 +23,7 @@ function App() {
 
   document.addEventListener("DOMContentLoaded", () => {
     const loadArticles = async () => {
-      const url = "/api/wikipages/articles";
+      const url = "/api/articles";
       const options = {
         method: 'GET',
         headers: {
