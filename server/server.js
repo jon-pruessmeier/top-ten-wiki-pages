@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const schedule = require('node-schedule')
 
 const parentDir = path.join(__dirname, "..");
 const clientDir = path.join(parentDir, 'client');
@@ -22,6 +23,17 @@ console.log(typeof jsonData);
 console.log(jsonData);
 console.log(jsonData.length);
 });
+
+const job = schedule.scheduleJob("0 0 3 * * *", () => {
+    pythonProcess = (process.platform === "win32") ? spawn('python',["./wikipedia-crawler/main.py"]) : spawn('python3',["../wikipedia-crawler/main.py"]); 
+
+    pythonProcess.stdout.on('data', (data) => {
+        jsonData = JSON.parse(data.toString());
+        console.log(typeof jsonData);
+        console.log(jsonData);
+        console.log(jsonData.length);
+        });
+} )
 
 
 

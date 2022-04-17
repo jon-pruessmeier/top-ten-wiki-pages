@@ -13,6 +13,7 @@
     "express": "^4.17.2"
   },
   "dependencies": {
+    "node-schedule": "^2.1.0",
     "nodemon": "^2.0.15"
   }
 }
