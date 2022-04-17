@@ -36,6 +36,7 @@ function App() {
       setArticles(result);
     }
     loadArticles().catch((err) => {
+      setArticles(testdata)
       console.log(err);
     })
   });
@@ -49,7 +50,7 @@ function App() {
 
   const app = (
     <div className="container-fluid">
-      <div className="row mx-0">
+      <div className="row d-flex justify-content-center">
         {listOfArticles(articles)}
       </div>
         
